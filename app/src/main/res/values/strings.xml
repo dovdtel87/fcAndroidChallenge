@@ -1,4 +1,9 @@
 <resources>
-    <string name="app_name">FundingCircleChallenge</string>
+    <string name="app_name">Funding Circle Challenge</string>
     <string name="action_settings">Settings</string>
+
+    <string name="list_of_auctions">Auctions List</string>
+    <string name="rate">Rate: %s</string>
+    <string name="risk_band">Risk Band: %s</string>
+
 </resources>
