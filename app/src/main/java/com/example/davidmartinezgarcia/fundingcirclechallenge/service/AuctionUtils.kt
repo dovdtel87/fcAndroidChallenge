@@ -1,5 +1,6 @@
 package com.example.davidmartinezgarcia.fundingcirclechallenge.service
 
+import android.content.Context
 import android.support.annotation.ColorRes
 import com.example.davidmartinezgarcia.fundingcirclechallenge.R
 import java.text.DecimalFormat
@@ -37,8 +38,8 @@ class AuctionUtils() {
             return colorInt
         }
 
-        fun getEstimatedReturnAmount(ar: Float, riskBand: String) : Float {
-            return roundTwoDecimals((1 + ar - getEbd(riskBand) - FEE) * BA)
+        fun getEstimatedReturnAmount(context: Context, ar: Float, riskBand: String) : Float {
+            return roundTwoDecimals(context,(1 + ar - getEbd(riskBand) - FEE) * BA)
         }
 
         private fun getEbd(riskBand : String) : Float{
@@ -53,8 +54,8 @@ class AuctionUtils() {
             return ebd
         }
 
-        fun roundTwoDecimals(float: Float): Float {
-            val twoDForm = DecimalFormat("#.##")
+        private fun roundTwoDecimals(context: Context, float: Float): Float {
+            val twoDForm = DecimalFormat(context.resources.getString(R.string.decimal_format))
             return java.lang.Float.valueOf(twoDForm.format(float))
         }
     }
