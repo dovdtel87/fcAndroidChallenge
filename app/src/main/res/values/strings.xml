@@ -5,6 +5,7 @@
     <string name="list_of_auctions">Auctions List</string>
     <string name="rate">Rate: %s</string>
     <string name="risk_band">Risk Band: %s</string>
-    <string name="era">"Era: %s £"</string>
+    <string name="era">Era: %s £</string>
+    <string name="api_error">Error retrieving API info</string>
 
 </resources>
