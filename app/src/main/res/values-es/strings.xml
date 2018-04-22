@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Reto Funding Circle</string>
+
+    <string name="list_of_auctions">Lista de Acciones</string>
+    <string name="rate">Porcenaje: %s</string>
+    <string name="risk_band">Banda de riesgo: %s</string>
+    <string name="era">Era: %s £</string>
+    <string name="api_error">Error recibiendo informacion de la API</string>
+
+</resources>

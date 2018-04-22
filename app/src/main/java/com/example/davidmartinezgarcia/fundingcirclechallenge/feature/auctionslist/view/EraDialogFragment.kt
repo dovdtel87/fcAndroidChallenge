@@ -69,7 +69,7 @@ class EraDialogFragment : DialogFragment() {
         })
 
         titleText.text = title
-        eraText.text = String.format(context!!.getString(R.string.era), AuctionUtils.getEstimatedReturnAmount(rate, riskBand))
+        eraText.text = String.format(context!!.getString(R.string.era), AuctionUtils.getEstimatedReturnAmount(context!!, rate, riskBand))
 
         return view
     }
