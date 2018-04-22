@@ -27,4 +27,15 @@
         android:clipToPadding="false"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
+    <TextView
+        android:id="@+id/error_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:textSize="20sp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        tools:text="Error retrieving Auctions"/>
+
+
 </RelativeLayout>
