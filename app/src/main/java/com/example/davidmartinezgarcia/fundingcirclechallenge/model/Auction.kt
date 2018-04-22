@@ -10,5 +10,4 @@ data class Auction(
         val title: String,
         val rate: Float,
         @SerializedName("risk_band") val riskBand: String) {
-
 }

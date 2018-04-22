@@ -15,6 +15,7 @@ import com.example.davidmartinezgarcia.fundingcirclechallenge.feature.auctionsli
 import com.example.davidmartinezgarcia.fundingcirclechallenge.feature.auctionslist.presenter.AuctionsListPresenter
 import com.example.davidmartinezgarcia.fundingcirclechallenge.feature.auctionslist.repository.AuctionsListRepository
 import com.example.davidmartinezgarcia.fundingcirclechallenge.model.Auction
+import com.example.davidmartinezgarcia.fundingcirclechallenge.service.AuctionUtils
 import kotlinx.android.synthetic.main.content_main.*
 
 class AuctionsListActivity : AppCompatActivity(), AuctionsListContract.View, AuctionsListAdapter.AuctionClickListener {
@@ -61,7 +62,8 @@ class AuctionsListActivity : AppCompatActivity(), AuctionsListContract.View, Auc
     }
 
     override fun onAuctionClicked(auction: Auction) {
-
+        val dialogFragment = EraDialogFragment.newInstance(auction.title, auction.rate, auction.riskBand)
+        dialogFragment.show(supportFragmentManager, "Dialog")
     }
 
     override fun onApiError(exception: Throwable) {
