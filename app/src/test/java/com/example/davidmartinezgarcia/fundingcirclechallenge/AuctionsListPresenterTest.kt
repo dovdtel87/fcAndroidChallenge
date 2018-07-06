@@ -53,7 +53,6 @@ class AuctionsListPresenterTest {
     @Test
     fun shouldThrowApiException() {
         val exception = Throwable("Api error")
-
         `when`(auctionsListRepository.retrieveAuctions()).thenReturn(Observable.error(exception))
 
         presenter.retrieveAuctions()

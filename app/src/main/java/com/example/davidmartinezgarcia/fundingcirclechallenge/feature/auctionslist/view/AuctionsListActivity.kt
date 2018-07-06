@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
+import android.util.Log
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
@@ -40,7 +41,7 @@ class AuctionsListActivity : AppCompatActivity(), AuctionsListContract.View, Auc
         mRecyclerView = recycler_view
         mProgressBar = progress_bar
 
-        mPresenter = AuctionsListPresenter(this, AuctionsListRepository())
+        //mPresenter = AuctionsListPresenter(this, AuctionsListRepository())
 
         if (savedInstanceState?.getString(STATE_AUCTIONS) != null) {
             mAuctions = GsonFactory.getInstance().fromJson(savedInstanceState.getString(STATE_AUCTIONS), object : TypeToken<ArrayList<Auction>>() {}.type)
@@ -74,8 +75,7 @@ class AuctionsListActivity : AppCompatActivity(), AuctionsListContract.View, Auc
     }
 
     override fun onAuctionClicked(auction: Auction) {
-        val dialogFragment = EraDialogFragment.newInstance(auction.title, auction.rate, auction.riskBand)
-        dialogFragment.show(supportFragmentManager, "Dialog")
+       mPresenter.decideAuctionDetailToOpen(auction)
     }
 
     override fun onApiError(exception: Throwable) {
@@ -84,6 +84,42 @@ class AuctionsListActivity : AppCompatActivity(), AuctionsListContract.View, Auc
         errorText.text = getString(R.string.api_error)
         mRecyclerView.visibility = GONE
         errorText.visibility = VISIBLE
+    }
+
+    override fun openAuctionDetails(auction : Auction) {
+        Log.d("LOG AuctionListActivity", "Detail Normal")
+        val dialogFragment = EraDialogFragment.newInstance(auction.title, auction.rate, auction.riskBand)
+        dialogFragment.show(supportFragmentManager, "Dialog")
+    }
+
+    override fun openAuctionDetailsRiskBandA(auction : Auction) {
+        Log.d("LOG AuctionListActivity", "Detail RiskBand A")
+        val dialogFragment = EraDialogFragment.newInstance(auction.title, auction.rate, auction.riskBand)
+        dialogFragment.show(supportFragmentManager, "Dialog")
+    }
+
+    override fun openAuctionDetailsRiskBandB(auction : Auction) {
+        Log.d("LOG AuctionListActivity", "Detail RiskBand B")
+        val dialogFragment = EraDialogFragment.newInstance(auction.title, auction.rate, auction.riskBand)
+        dialogFragment.show(supportFragmentManager, "Dialog")
+    }
+
+    override fun openAuctionDetailsRiskBandC(auction : Auction) {
+        Log.d("LOG AuctionListActivity", "Detail RiskBand C")
+        val dialogFragment = EraDialogFragment.newInstance(auction.title, auction.rate, auction.riskBand)
+        dialogFragment.show(supportFragmentManager, "Dialog")
+    }
+
+    override fun openAuctionDetailsRiskBandD(auction : Auction) {
+        Log.d("LOG AuctionListActivity", "Detail RiskBand D")
+        val dialogFragment = EraDialogFragment.newInstance(auction.title, auction.rate, auction.riskBand)
+        dialogFragment.show(supportFragmentManager, "Dialog")
+    }
+
+    override fun openAuctionDetailsRiskBandE(auction : Auction) {
+        Log.d("LOG AuctionListActivity", "Detail RiskBand E")
+        val dialogFragment = EraDialogFragment.newInstance(auction.title, auction.rate, auction.riskBand)
+        dialogFragment.show(supportFragmentManager, "Dialog")
     }
 
     override fun onSaveInstanceState(outState: Bundle) {

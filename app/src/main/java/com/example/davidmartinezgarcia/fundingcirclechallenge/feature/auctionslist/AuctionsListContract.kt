@@ -11,9 +11,16 @@ interface AuctionsListContract {
         fun showAuctions(value: List<Auction>)
         fun showProgress()
         fun hideProgress()
+        fun openAuctionDetailsRiskBandA(auction : Auction)
+        fun openAuctionDetailsRiskBandB(auction : Auction)
+        fun openAuctionDetailsRiskBandC(auction : Auction)
+        fun openAuctionDetailsRiskBandD(auction : Auction)
+        fun openAuctionDetailsRiskBandE(auction : Auction)
+        fun openAuctionDetails(auction : Auction)
     }
 
     interface Presenter : com.example.davidmartinezgarcia.fundingcirclechallenge.feature.common.presenter.Presenter {
         fun retrieveAuctions()
+        fun decideAuctionDetailToOpen(auction: Auction)
     }
 }

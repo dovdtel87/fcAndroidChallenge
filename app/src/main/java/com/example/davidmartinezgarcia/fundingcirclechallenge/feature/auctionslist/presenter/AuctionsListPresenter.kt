@@ -3,6 +3,7 @@ package com.example.davidmartinezgarcia.fundingcirclechallenge.feature.auctionsl
 import com.example.davidmartinezgarcia.fundingcirclechallenge.feature.auctionslist.AuctionsListContract
 import com.example.davidmartinezgarcia.fundingcirclechallenge.feature.auctionslist.repository.AuctionsListRepositoryInterface
 import com.example.davidmartinezgarcia.fundingcirclechallenge.feature.common.presenter.BasePresenter
+import com.example.davidmartinezgarcia.fundingcirclechallenge.model.Auction
 import com.example.davidmartinezgarcia.fundingcirclechallenge.model.networkmodel.AuctionsEndPoint
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.functions.Consumer
@@ -24,6 +25,19 @@ class AuctionsListPresenter(private var view: AuctionsListContract.View,
                         view.showAuctions(auctionsResponse.items)
                     }
                 }, ApiErrorAction(view)))
+    }
+
+    override fun decideAuctionDetailToOpen(auction: Auction) {
+        when(auction.riskBand) {
+            "A" -> view.openAuctionDetailsRiskBandA(auction)
+            "B" -> view.openAuctionDetailsRiskBandB(auction)
+            "C" -> view.openAuctionDetailsRiskBandC(auction)
+            "D" -> view.openAuctionDetailsRiskBandD(auction)
+            "E" -> view.openAuctionDetailsRiskBandE(auction)
+            else -> {
+                view.openAuctionDetails(auction)
+            }
+        }
     }
 
     override fun onViewDestroyed() {
